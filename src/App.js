@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+
+import MemoAndCallback from "./components/memo-and-callback";
 
 function App() {
+  const [content, setContent] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <nav className="App">
+        <button onClick={() => setContent("memoAndCallback")}>
+          memo HOC and callBack Hook
+        </button>
+        <button onClick={() => setContent("")}>clear</button>
+      </nav>
+      {content === "memoAndCallback" && <MemoAndCallback />}
+    </>
   );
 }
 
